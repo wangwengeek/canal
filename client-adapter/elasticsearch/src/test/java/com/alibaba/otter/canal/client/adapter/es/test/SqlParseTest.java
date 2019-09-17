@@ -58,9 +58,9 @@ public class SqlParseTest {
         String sql = "select a.id, CASE WHEN a.id <= 500 THEN '1' else '2' end as id2, "
                 + "concat(a.name,'_test') as name, a.role_id, b.name as role_name, c.labels from user a "
                 + "left join role b on a.role_id=b.id "
-                + "left join (select user_id, group_concat(label,',') as labels from user_label "
+                + "left join (select user_id,user_type, group_concat(label,',') as labels from user_label "
                 + "where a = 1 and c = d and type = 1 "
-                + "group by user_id) c on c.user_id=a.id";
+                + "group by user_id,user_type) c on c.user_id=a.id";
 
         SQLStatementParser parser = new MySqlStatementParser(sql);
         SQLSelectStatement statement = (SQLSelectStatement) parser.parseStatement();
