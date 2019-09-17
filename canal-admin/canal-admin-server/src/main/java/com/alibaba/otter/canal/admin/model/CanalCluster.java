@@ -1,7 +1,6 @@
 package com.alibaba.otter.canal.admin.model;
 
 import io.ebean.Finder;
-import io.ebean.annotation.WhenModified;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -35,7 +34,6 @@ public class CanalCluster extends Model {
     private Long   id;
     private String name;
     private String zkHosts;
-    @WhenModified
     private Date   modifiedTime;
 
     public Long getId() {

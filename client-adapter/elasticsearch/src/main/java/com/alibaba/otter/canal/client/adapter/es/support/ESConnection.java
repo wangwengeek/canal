@@ -61,8 +61,7 @@ public class ESConnection {
         this.mode = mode;
         if (mode == ESClientMode.TRANSPORT) {
             Settings.Builder settingBuilder = Settings.builder();
-            // properties.forEach(settingBuilder::put);
-            settingBuilder.put("cluster.name", properties.get("properties"));
+            properties.forEach(settingBuilder::put);
             Settings settings = settingBuilder.build();
             transportClient = new PreBuiltTransportClient(settings);
             for (String host : hosts) {

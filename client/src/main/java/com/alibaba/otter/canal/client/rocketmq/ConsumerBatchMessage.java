@@ -1,4 +1,4 @@
-package com.alibaba.otter.canal.client;
+package com.alibaba.otter.canal.client.rocketmq;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;

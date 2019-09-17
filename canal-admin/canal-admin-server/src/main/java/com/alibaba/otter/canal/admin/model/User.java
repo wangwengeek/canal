@@ -1,7 +1,6 @@
 package com.alibaba.otter.canal.admin.model;
 
 import io.ebean.Finder;
-import io.ebean.annotation.WhenCreated;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -37,7 +36,6 @@ public class User extends Model {
     private String introduction;
     private String avatar;
     private String name;
-    @WhenCreated
     private Date   creationDate;
 
     @Transient

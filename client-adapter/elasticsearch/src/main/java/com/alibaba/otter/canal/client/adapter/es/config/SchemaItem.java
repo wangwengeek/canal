@@ -87,13 +87,10 @@ public class SchemaItem {
                         .forEach((fieldName, fieldItem) -> fieldItem.getColumnItems().forEach(columnItem -> {
                             // TableItem tableItem = getAliasTableItems().get(columnItem.getOwner());
                             // if (!tableItem.isSubQuery()) {
-                            //当数据列并非原始列时，columnName是空的，例如concat('px',id)
-                            if(columnItem.getColumnName() != null) {
-                                List<FieldItem> fieldItems = columnFields.computeIfAbsent(
-                                    columnItem.getOwner() + "." + columnItem.getColumnName(),
-                                    k -> new ArrayList<>());
-                                fieldItems.add(fieldItem);
-                            }
+                            List<FieldItem> fieldItems = columnFields.computeIfAbsent(
+                                columnItem.getOwner() + "." + columnItem.getColumnName(),
+                                k -> new ArrayList<>());
+                            fieldItems.add(fieldItem);
                             // } else {
                             // tableItem.getSubQueryFields().forEach(subQueryField -> {
                             // List<FieldItem> fieldItems = columnFields.computeIfAbsent(
